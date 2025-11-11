@@ -828,7 +828,7 @@
                         openOtherPaymentModal();
                     }
                 } catch (err) {
-                    console.error("Exception in checkout:", err);
+                    // console.error("Exception in checkout:", err);
                     showModal('Error', 'Terjadi kesalahan koneksi.');
                 }
             });

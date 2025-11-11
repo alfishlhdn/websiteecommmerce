@@ -28,25 +28,26 @@
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 text-center">
             @foreach ($kategori->take(10) as $item)
-                {{-- tampilkan max 10 kategori --}}
                 <a href="{{ url('shop') . '?category=' . urlencode($item->slug) }}"
                     class="flex flex-col items-center justify-center p-2 rounded-xl bg-white shadow-sm hover:shadow-lg hover:text-green-600 transition-all duration-300 transform hover:-translate-y-1">
+
                     <div
-                        class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-2 rounded-full flex items-center justify-center overflow-hidden border border-gray-200">
-                        <img src="{{ $item->icon ? asset('storage/' . $item->icon) : '/image/default-category.png' }}"
-                            alt="{{ $item->nama_kategori }}" class="w-full h-full object-cover p-1">
+                        class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-2 rounded-full flex items-center justify-center overflow-hidden border border-gray-200 bg-gray-50">
+
+                        @if ($item->icon)
+                            <img src="{{ asset('storage/' . $item->icon) }}" alt="{{ $item->nama_kategori }}"
+                                class="w-full h-full object-cover p-1">
+                        @else
+                            <span class="text-xs sm:text-sm font-semibold text-gray-700 px-2 text-center leading-tight">
+                                {{ $item->nama_kategori }}
+                            </span>
+                        @endif
                     </div>
+
                     <span class="text-xs sm:text-sm font-semibold mt-1">{{ $item->nama_kategori }}</span>
                 </a>
             @endforeach
         </div>
-
-        {{-- Tampilkan kategori terbatas --}}
-        @foreach ($kategori->take($limitKategori) as $k)
-            <div class="kategori-item">
-                {{ $k->nama }}
-            </div>
-        @endforeach
 
         {{-- Tombol Lihat Semua kalau kategori lebih dari limit --}}
         @if ($kategori->count() > $limitKategori)
@@ -57,9 +58,7 @@
                 </a>
             </div>
         @endif
-
     </section>
-
 
 
     {{-- Rekomendasi Produk & Produk Terbaru --}}
@@ -69,7 +68,7 @@
             <a href="/shop"
                 class="text-green-600 font-semibold text-xs sm:text-sm hover:underline hover:text-green-700 transition">Lihat
                 Semua →</a>
-        </div>
+        </div>  
 
         <div class="relative group">
             <div id="rekomendasiSlider"
