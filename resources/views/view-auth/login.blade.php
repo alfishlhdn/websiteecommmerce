@@ -82,7 +82,6 @@
             <!-- Remember + Forgot -->
             <div class="flex flex-col sm:flex-row items-center justify-between text-sm text-gray-600 gap-2">
                 <label class="inline-flex items-center">
-                    {{-- <input type="checkbox" class="form-checkbox mr-2" /> --}}
                 </label>
                 <a href="{{ route('password.request') }}" class="text-blue-600 hover:underline">Lupa Password?</a>
             </div>

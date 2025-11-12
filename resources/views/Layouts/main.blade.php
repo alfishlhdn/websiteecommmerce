@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('judul')</title>
     <meta name="description"
@@ -30,10 +29,6 @@
 
     <!-- Favicon -->
     <link rel="icon" href="/image/logoagaitcomputer.png" type="image/png" />
-    <!-- CSS & Tailwind -->
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /> --}}
-    {{-- <script src="/assets/talwind.js"></script> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
 

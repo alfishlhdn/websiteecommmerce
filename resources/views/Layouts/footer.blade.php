@@ -9,12 +9,13 @@
     </div>
 
     <!-- Logo & Info -->
-    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm mb-6 relative z-10 gap-6 md:gap-0">
+    <div
+        class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm mb-6 relative z-10 gap-6 md:gap-0">
         <!-- Logo -->
         <div class="flex items-center gap-3 text-center md:text-left">
             <img src="/image/logoagaitcomputer.png" alt="Logo" class="w-14 h-14 rounded-full mx-auto md:mx-0">
             <div>
-                <p class="font-bold">{{ $store->store_name }}</p>
+                <p class="font-bold">{{ $store->store_name ?? 'AGA COMPUTER' }}</p>
                 <p class="text-xs">SOLUSI IT DAN PC TERPERCAYA</p>
             </div>
         </div>
@@ -24,10 +25,14 @@
             <p><i class="fas fa-clock mr-1"></i> Senin - Sabtu : 08.00 - 20.00</p>
             <p>
                 <i class="fas fa-map-marker-alt mr-1"></i>
-                <a href="{{ $store->address_ingooglemaps }}" target="_blank"
-                   class="hover:underline text-blue-600">
-                   {{ $store->address }}
-                </a>
+
+                @if (!empty($store->address_ingooglemaps) && !empty($store->address))
+                    <a href="{{ $store->address_ingooglemaps }}" target="_blank" class="hover:underline text-blue-600">
+                        {{ $store->address }}
+                    </a>
+                @else
+                    <span class="text-gray-600">Alamat belum tersedia</span>
+                @endif
             </p>
 
             <!-- Sosmed -->
@@ -59,17 +64,20 @@
         <div>
             <h3 class="text-lg font-semibold mb-3">Tentang Toko</h3>
             <p class="text-justify">
-                {{ $store->store_name }} adalah toko komputer terpercaya di Malang yang menyediakan berbagai layanan dan produk IT.
+                {{ $store->store_name ?? 'AGA IT COMPUTER ' }} adalah toko komputer terpercaya di Malang yang
+                menyediakan berbagai layanan dan produk IT.
                 Kami melayani penjualan laptop, PC rakitan, aksesoris, serta jasa service & instalasi software.
-                Berlokasi di {{ $store->address }}, kami hadir untuk kebutuhan personal maupun bisnis Anda.
+                Berlokasi di {{ $store->address ?? 'TEST' }}, kami hadir untuk kebutuhan personal maupun bisnis Anda.
             </p>
         </div>
 
         <!-- Informasi -->
         <div>
             <h3 class="text-lg font-semibold mb-3">Informasi</h3>
-            <p><strong>Email:</strong> <a href="mailto:{{ $store->email }}" class="underline">{{ $store->email }}</a></p>
-            <p><strong>Phone:</strong> <a href="tel:{{ $store->phone }}" class="underline">{{ $store->phone }}</a></p>
+            <p><strong>Email:</strong> <a href="mailto:{{ $store->email ?? 'agakomputer' }}"
+                    class="underline">{{ $store->email ?? 'agakomputer' }}</a></p>
+            <p><strong>Phone:</strong> <a href="tel:{{ $store->phone ?? 'AGA COMPUTER' }}"
+                    class="underline">{{ $store->phone ?? 'AGA COMPUTER' }}</a></p>
             <div class="mt-3 space-y-1">
                 <a href="/tentang-kami" class="hover:underline block">Tentang Kami</a>
                 <a href="/cara-belanja" class="hover:underline block">Cara Belanja</a>
@@ -124,9 +132,8 @@
 </footer>
 
 <!-- WhatsApp Floating -->
-<a href="https://wa.me/6281333892111?text=Halo%20Admin%2C%20saya%20ingin%20tanya%20tentang%20produk"
-   target="_blank"
-   class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg z-50 flex items-center space-x-2">
+<a href="https://wa.me/6281333892111?text=Halo%20Admin%2C%20saya%20ingin%20tanya%20tentang%20produk" target="_blank"
+    class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg z-50 flex items-center space-x-2">
     <i class="fab fa-whatsapp text-xl"></i>
     <span class="hidden md:block font-semibold">Hubungi Kami</span>
 </a>

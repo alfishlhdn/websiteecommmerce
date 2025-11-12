@@ -30,11 +30,6 @@
             'route' => 'metode-pengiriman',
             'icon' => '🚚',
         ],
-        // [
-        //     'label' => 'Cara Pengembalian',
-        //     'route' => 'pengembalian',
-        //     'icon' => '↩️',
-        // ],
         [
             'label' => 'Pusat Bantuan',
             'route' => 'bantuan',

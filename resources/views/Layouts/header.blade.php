@@ -20,9 +20,9 @@
 
         <!-- kanan -->
         <div class="flex flex-wrap justify-center sm:justify-end gap-2 text-center sm:text-right">
-            <span>Email: <a href="mailto:{{ $store->email }}" class="font-semibold">{{ $store->email }}</a></span>
+            <span>Email: <a href="mailto:{{ $store->email ?? 'AGA COMPUTER'}}" class="font-semibold">{{ $store->email ?? 'AGA COMPUTER'}}</a></span>
             <span class="hidden sm:inline">|</span>
-            <span>Phone: <a href="tel:{{ $store->phone }}" class="font-semibold">{{ $store->phone }}</a></span>
+            <span>Phone: <a href="tel:{{ $store->phone ?? 'AGA COMPUTER'}}" class="font-semibold">{{ $store->phone ?? 'AGA COMPUTER'}}</a></span>
         </div>
     </div>
 </div>
@@ -34,7 +34,7 @@
         <!-- Logo + Nama Toko -->
         <div class="flex items-center justify-between w-full md:w-auto">
             <a href="/" class="flex items-center gap-2">
-                <img src="{{ asset(Storage::url($store->logo)) }}" alt="Logo AGA IT COMPUTER"
+                <img src="{{ asset(Storage::url($store->logo)) ?? 'AGA COMPUTER' }}" alt="Logo AGA IT COMPUTER"
                     class="w-10 h-10 rounded-full">
                 <!-- ⬇️ Desktop & Tablet -->
                 <div class="hidden sm:block">

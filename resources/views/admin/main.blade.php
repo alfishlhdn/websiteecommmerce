@@ -6,9 +6,6 @@
     <title>@yield('judul')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/image/logoagaitcomputer.png" type="image/png" />
-    {{-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css"> --}}
-    {{-- <script src="/assets/talwind.js"></script> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
     <style>
@@ -71,15 +68,6 @@
                     </svg>
                     <span class="text-gray-700">Profil Saya</span>
                 </a>
-                {{-- <a href="#"
-                    class="flex items-center gap-2 p-2 rounded-md hover:bg-gray-100 transition-colors duration-200">
-                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <span class="text-gray-700">Pengaturan</span>
-                </a> --}}
             </div>
 
 
@@ -170,9 +158,6 @@
                         <li><a href="{{ url('/pesanan') }}"
                                 class="block px-3 py-2 rounded hover:bg-blue-700 {{ request()->is('pesanan*') ? 'bg-blue-700' : '' }}"><i
                                     class="fas fa-shopping-cart"></i> Pesanan</a></li>
-                        {{-- <li><a href="{{ url('/pembayaran') }}"
-                                class="block px-3 py-2 rounded hover:bg-blue-700 {{ request()->is('pembayaran*') ? 'bg-blue-700' : '' }}"><i
-                                    class="fas fa-credit-card"></i> Pembayaran</a></li> --}}
                         <li><a href="{{ url('/kurir') }}"
                                 class="block px-3 py-2 rounded hover:bg-blue-700 {{ request()->is('kurir*') ? 'bg-blue-700' : '' }}"><i
                                     class="fas fa-shipping-fast"></i> Kurir</a></li>
@@ -228,13 +213,6 @@
                                     class="fas fa-heart"></i> Wishlist</a></li>
                     </ul>
                 </li>
-                {{-- Kelola Artikel --}}
-                {{-- <li>
-                    <a href="/artikel"
-                        class="flex items-center gap-2 hover:bg-blue-700 px-3 py-2 rounded {{ request()->is('artikel*') ? 'bg-blue-700' : '' }}">
-                        <i class="fas fa-newspaper"></i> Kelola Artikel
-                    </a>
-                </li> --}}
 
                 <!-- Analitik -->
                 <li><a href="/analitik"
@@ -292,39 +270,7 @@
         @endif
     </div>
 
-    {{-- <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const links = document.querySelectorAll('.menu-link');
-            const mainContent = document.getElementById('main-content');
-
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-
-                    const url = this.getAttribute('href');
-
-                    // Fade out
-                    mainContent.classList.add('opacity-0');
-
-                    fetch(url)
-                        .then(res => res.text())
-                        .then(html => {
-                            const parser = new DOMParser();
-                            const doc = parser.parseFromString(html, 'text/html');
-                            const newContent = doc.getElementById('main-content')?.innerHTML;
-
-                            if (newContent) {
-                                setTimeout(() => {
-                                    mainContent.innerHTML = newContent;
-                                    mainContent.classList.remove('opacity-0');
-                                }, 200); // Waktu fade out
-                            }
-                        });
-                });
-            });
-        });
-    </script> --}}
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const profileButton = document.getElementById('profileButton');

@@ -4,9 +4,6 @@
     <div class="max-w-md mx-auto mt-12 p-6 bg-white shadow rounded">
         <h2 class="text-xl font-semibold mb-4">Atur Password Akun Anda</h2>
 
-        {{-- @if (session('success'))
-        <div class="bg-green-100 text-green-800 p-3 rounded mb-4">{{ session('success') }}</div>
-    @endif --}}
         @if (session('info'))
             <div class="bg-blue-100 text-blue-800 p-3 rounded mb-4">{{ session('info') }}</div>
         @endif
